@@ -1,9 +1,9 @@
 export const translations = {
   de: {
     nav: {
-      solutions: 'Zielgruppe',
+      solutions: 'Einsatzgebiete',
       caseStudies: 'Fähigkeiten',
-      methodology: 'Erstellungsprozess',
+      methodology: 'Vorgehensweise',
       contact: 'Kontakt',
       start: 'Starten',
       strategy: 'Strategiegespräch'
@@ -25,9 +25,9 @@ export const translations = {
       'Gastronomen', 'Architekten', 'Rechtsanwälte', 'Steuerberater'
     ],
     caseStudies: {
-      title: 'Fähigkeiten des Digitalen Zwillings',
-      subtitle: 'Spezialisierte KI-Lösungen für unterschiedliche Branchen. Jede Expertise ist ein Standard für Effizienz.',
-      badge: 'Fähigkeiten',
+      title: 'Die 5 Fähigkeiten',
+      subtitle: 'Spezialisierte KI-Lösungen für unterschiedliche Branchen. Jede Fähigkeit ist ein Standard für Effizienz.',
+      badge: 'Fähigkeiten des D.T.',
       flagship: 'Digitaler Zwilling',
       details: 'Details ansehen',
       missingTitle: 'Ihre Expertise fehlt?',
@@ -81,7 +81,7 @@ export const translations = {
       ]
     },
     methodology: {
-      title: 'Der Erstellungsprozess:',
+      title: 'Vorgehensweise:',
       highlight: 'Digital Twin Creation',
       subtitle: 'Wir verwandeln Ihr Fachwissen in einen autonomen Digitalen Zwilling. Übergeben Sie die Arbeit an Ihre digitale Kopie und genießen Sie echte unternehmerische Freiheit.',
       steps: [
@@ -124,25 +124,47 @@ export const translations = {
         imprint: 'Impressum',
         privacy: 'Datenschutz'
       },
-      legal: {
-        imprint: {
-          title: 'Impressum',
-          company: 'DigitalTwinArchitecs.io',
-          address: 'Bregenz, Österreich',
-          contact: 'Kontakt',
-          email: 'office@digitaltwinarchitecs.io',
-          phone: '+43 (0)660 47 63 085',
-          chamber: 'Mitglied der Wirtschaftskammer Vorarlberg',
-          disclaimer: 'Haftungsausschluss: Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links.'
-        },
-        privacy: {
-          title: 'Datenschutz',
-          intro: 'Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir verarbeiten Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TKG 2003).',
-          contact: 'Kontakt mit uns',
-          contactDesc: 'Wenn Sie per Formular auf der Website oder per E-Mail Kontakt mit uns aufnehmen, werden Ihre angegebenen Daten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen sechs Monate bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.',
-          rights: 'Ihre Rechte',
-          rightsDesc: 'Ihnen stehen grundsätzlich die Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerruf und Widerspruch zu.'
-        }
+      imprintContent: {
+        title: 'Impressum',
+        sections: [
+          {
+            title: 'Angaben gemäß § 5 TMG / § 25 Mediengesetz',
+            content: 'Apti Akhmadov\nBlumenstraße 7b\n6900 Bregenz\nÖsterreich'
+          },
+          {
+            title: 'Kontakt',
+            content: 'Telefon: +43 (0)660 47 63 085\nE-Mail: office@digitaltwinarchitecs.io'
+          },
+          {
+            title: 'Aufsichtsbehörde',
+            content: 'Bezirkshauptmannschaft Bregenz'
+          },
+          {
+            title: 'Online-Streitbeilegung',
+            content: 'Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr/. Unsere E-Mail-Adresse finden Sie oben im Impressum.'
+          }
+        ]
+      },
+      privacyContent: {
+        title: 'Datenschutzerklärung',
+        sections: [
+          {
+            title: '1. Datenschutz auf einen Blick',
+            content: 'Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.'
+          },
+          {
+            title: '2. Datenerfassung auf dieser Website',
+            content: 'Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen. Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben. Diese Daten werden ausschließlich zur Beantwortung Ihrer Anfrage genutzt.'
+          },
+          {
+            title: '3. Analyse-Tools und Tools von Drittanbietern',
+            content: 'Beim Besuch dieser Website kann Ihr Surf-Verhalten statistisch ausgewertet werden. Das geschieht vor allem mit Cookies und mit sogenannten Analyseprogrammen. Wir nutzen Google Analytics und Meta Pixel zur Optimierung unseres Angebots. Außerdem werden Google Fonts zur einheitlichen Darstellung von Schriftarten verwendet.'
+          },
+          {
+            title: '4. Ihre Rechte',
+            content: 'Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen.'
+          }
+        ]
       },
       automationTasks: [
         'Kunden-Triage',
@@ -158,9 +180,9 @@ export const translations = {
   },
   ru: {
     nav: {
-      solutions: 'Целевая группа',
+      solutions: 'Сферы применения',
       caseStudies: 'Возможности',
-      methodology: 'Процесс создания',
+      methodology: 'Процесс',
       contact: 'Контакт',
       start: 'Начать',
       strategy: 'Стратегия'
@@ -182,9 +204,9 @@ export const translations = {
       'Рестораторы', 'Архитекторы', 'Юристы', 'Налоговые консультанты'
     ],
     caseStudies: {
-      title: 'Возможности Диджитал Двойника',
-      subtitle: 'Специализированные ИИ-решения для различных отраслей. Каждая экспертиза — это стандарт эффективности.',
-      badge: 'Возможности',
+      title: '5 возможностей',
+      subtitle: 'Специализированные ИИ-решения для различных отраслей. Каждая возможность — это стандарт эффективности.',
+      badge: 'Возможности Д.Д.',
       flagship: 'Диджитал Двойник',
       details: 'Подробнее',
       missingTitle: 'Вашей сферы нет в списке?',
@@ -281,25 +303,47 @@ export const translations = {
         imprint: 'Выходные данные',
         privacy: 'Конфиденциальность'
       },
-      legal: {
-        imprint: {
-          title: 'Выходные данные (Импринт)',
-          company: 'DigitalTwinArchitecs.io',
-          address: 'Брегенц, Австрия',
-          contact: 'Контакт',
-          email: 'office@digitaltwinarchitecs.io',
-          phone: '+43 (0)660 47 63 085',
-          chamber: 'Член Торгово-промышленной палаты Форарльберга',
-          disclaimer: 'Отказ от ответственности: Несмотря на тщательный контроль содержания, мы не несем ответственности за содержание внешних ссылок.'
-        },
-        privacy: {
-          title: 'Политика конфиденциальности',
-          intro: 'Защита ваших персональных данных является для нас приоритетом. Мы обрабатываем ваши данные исключительно на основании законодательных положений (GDPR).',
-          contact: 'Связь с нами',
-          contactDesc: 'Если вы связываетесь с нами через форму на сайте или по электронной почте, ваши данные будут храниться в течение шести месяцев для обработки запроса. Мы не передаем эти данные без вашего согласия.',
-          rights: 'Ваши права',
-          rightsDesc: 'У вас есть права на информацию, исправление, удаление, ограничение, переносимость данных, отзыв и возражение.'
-        }
+      imprintContent: {
+        title: 'Выходные данные (Impressum)',
+        sections: [
+          {
+            title: 'Данные согласно § 5 TMG / § 25 Mediengesetz',
+            content: 'Apti Akhmadov\nBlumenstraße 7b\n6900 Bregenz\nÖsterreich'
+          },
+          {
+            title: 'Контакт',
+            content: 'Телефон: +43 (0)660 47 63 085\nE-Mail: office@digitaltwinarchitecs.io'
+          },
+          {
+            title: 'Орган надзора',
+            content: 'Bezirkshauptmannschaft Bregenz'
+          },
+          {
+            title: 'Разрешение споров онлайн',
+            content: 'Европейская комиссия предоставляет платформу для онлайн-разрешения споров (OS): https://ec.europa.eu/consumers/odr/. Наш адрес электронной почты указан выше.'
+          }
+        ]
+      },
+      privacyContent: {
+        title: 'Политика конфиденциальности',
+        sections: [
+          {
+            title: '1. Краткий обзор защиты данных',
+            content: 'Ниже приведена краткая информация о том, что происходит с вашими персональными данными при посещении этого сайта.'
+          },
+          {
+            title: '2. Сбор данных на этом сайте',
+            content: 'Обработка данных на этом сайте осуществляется оператором сайта. Ваши данные собираются, когда вы сообщаете их нам (например, через контактную форму). Эти данные используются исключительно для ответа на ваш запрос.'
+          },
+          {
+            title: '3. Инструменты анализа и сторонние инструменты',
+            content: 'При посещении этого сайта ваше поведение в Интернете может быть подвергнуто статистическому анализу. Мы используем Google Analytics и Meta Pixel. Также используются Google Fonts.'
+          },
+          {
+            title: '4. Ваши права',
+            content: 'Вы имеете право в любое время бесплатно получить информацию о происхождении, получателе и цели ваших сохраненных персональных данных.'
+          }
+        ]
       },
       automationTasks: [
         'Триаж клиентов',
@@ -315,9 +359,9 @@ export const translations = {
   },
   ce: {
     nav: {
-      solutions: 'Целеви группа',
+      solutions: 'Лелош йолу меттигаш',
       caseStudies: 'Говзаллаш',
-      methodology: 'Кхолларан процесс',
+      methodology: 'Кхолларан некъ',
       contact: 'ЗIе',
       start: 'Долада',
       strategy: 'Стратеги'
@@ -339,9 +383,9 @@ export const translations = {
       'Рестораторш', 'Архитекторш', 'Юристаш', 'Налогийн консультанташ'
     ],
     caseStudies: {
-      title: 'Диджитал Шалвинанан говзаллаш',
+      title: '5 говзалла',
       subtitle: 'Тайп-тайpanчу отраслашна лерина ИИ-некъаш. ХIора говзалла — эффективаллан стандарт ю.',
-      badge: 'Говзаллаш',
+      badge: 'Д.Ш. говзаллаш',
       flagship: 'Диджитал Шалвина',
       details: 'Дуьззина',
       missingTitle: 'Хьан сфера оцу могIарехь яц?',
@@ -371,7 +415,7 @@ export const translations = {
       }
     },
     testimonials: {
-      title: 'Маркето хIу боху',
+      title: 'Маркет хIун боху',
       subtitle: 'Тхан партнерийн дуьххьаллера дешнаш. ЛадогIа, оха процессаш муха хийцайо.',
       items: [
         {
@@ -395,7 +439,7 @@ export const translations = {
       ]
     },
     methodology: {
-      title: 'Кхолларан процесс:',
+      title: 'Кхолларан некъ:',
       highlight: 'Digital Twin Creation',
       subtitle: 'Оха хьан говзалла автономни Диджитал Шалвинане ерзайо. Болх хьайн диджитал-копина тIебита, тIаккха хьайн маршонех пайда эца.',
       steps: [
@@ -438,25 +482,47 @@ export const translations = {
         imprint: 'Импринт',
         privacy: 'Къайлахалла'
       },
-      legal: {
-        imprint: {
-          title: 'Импринт (Хаамаш)',
-          company: 'DigitalTwinArchitecs.io',
-          address: 'Брегенц, Австрия',
-          contact: 'ЗIе',
-          email: 'office@digitaltwinarchitecs.io',
-          phone: '+43 (0)660 47 63 085',
-          chamber: 'Форарльберган йохка-эцаран палатин декъашхо',
-          disclaimer: 'Жоьпалла: Тхуна тIехь дац кхечу сайтан чулацаман жоьпалла.'
-        },
-        privacy: {
-          title: 'Къайлахалла латтор',
-          intro: 'Хьан хаамаш ларбар тхуна коьрта ду. Оха хьан хаамашца болх бо законаца (GDPR).',
-          contact: 'Тхоьца зIе латтор',
-          contactDesc: 'Нагахь ахьа тхоьца зIе латтахь, хьан хаамаш ялх баттахь латтор бу оха. Хьан пурба доцуш оха уьш кхечунна дIалур бац.',
-          rights: 'Хьан бакъонаш',
-          rightsDesc: 'Хьан бакъо ю хаамаш хийца, дIадайа я кхин дIа ца лелийта.'
-        }
+      imprintContent: {
+        title: 'Импринт (Impressum)',
+        sections: [
+          {
+            title: 'Хаамаш § 5 TMG / § 25 Mediengesetz',
+            content: 'Apti Akhmadov\nBlumenstraße 7b\n6900 Bregenz\nÖsterreich'
+          },
+          {
+            title: 'ЗIе латтор',
+            content: 'Телефон: +43 (0)660 47 63 085\nE-Mail: office@digitaltwinarchitecs.io'
+          },
+          {
+            title: 'Тергонан орган',
+            content: 'Bezirkshauptmannschaft Bregenz'
+          },
+          {
+            title: 'Бакъонаш ларъяр',
+            content: 'Европейски комиссис онлайн-разрешени споров (OS) платформа латтайо: https://ec.europa.eu/consumers/odr/. Тхан e-mail лакхахь яздина ду.'
+          }
+        ]
+      },
+      privacyContent: {
+        title: 'Къайлахалла ларъяр',
+        sections: [
+          {
+            title: '1. Хаамаш ларъяр',
+            content: 'ХIара хаамаш бу хьан персональни хаамашца муха болх бо вай довзийтарна.'
+          },
+          {
+            title: '2. Хаамаш схьаэцар',
+            content: 'Хьан хаамаш оха схьаоьцу ахьа уьш тхуна дIабелча (масала, контактни формехула). Оцу хаамех пайда оьцур бу хьан хаттарна жоп дала бен.'
+          },
+          {
+            title: '3. Аналитикин гIирсаш',
+            content: 'Вай пайда оьцу Google Analytics а, Meta Pixel а гIирсех. Иштта Google Fonts а юкъахь ю.'
+          },
+          {
+            title: '4. Хьан бакъонаш',
+            content: 'Хьан бакъо ю хьайн хаамех лаьцна хаамаш схьаэца а, уьш нисдан я дIадайа деха а.'
+          }
+        ]
       },
       automationTasks: [
         'Клиентийн триаж',

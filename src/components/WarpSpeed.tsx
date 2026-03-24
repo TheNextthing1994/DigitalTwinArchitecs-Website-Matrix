@@ -52,8 +52,15 @@ export const WarpSpeed: React.FC = () => {
       }
     };
 
+    const observer = new ResizeObserver(() => {
+      resize();
+    });
+
     const setup = () => {
       resize();
+      if (canvas.parentElement) {
+        observer.observe(canvas.parentElement);
+      }
       for (let i = 0; i < particleCount; i++) {
         particles.push(initParticle());
       }
@@ -105,11 +112,9 @@ export const WarpSpeed: React.FC = () => {
     setup();
     draw();
 
-    window.addEventListener('resize', resize);
-
     return () => {
       cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('resize', resize);
+      observer.disconnect();
     };
   }, []);
 

@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Github } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { cn } from '../lib/utils';
-import { LegalModal } from './LegalModal';
 
-export const Footer = ({ prefilledMessage }: { prefilledMessage?: string }) => {
+export const Footer = ({ 
+  prefilledMessage, 
+  onOpenLegal 
+}: { 
+  prefilledMessage?: string;
+  onOpenLegal: (type: 'imprint' | 'privacy') => void;
+}) => {
   const { t } = useLanguage();
   const [message, setMessage] = useState('');
-  const [legalModal, setLegalModal] = useState<{ isOpen: boolean; type: 'imprint' | 'privacy' }>({
-    isOpen: false,
-    type: 'imprint'
-  });
 
   useEffect(() => {
     if (prefilledMessage) {
@@ -18,19 +19,8 @@ export const Footer = ({ prefilledMessage }: { prefilledMessage?: string }) => {
     }
   }, [prefilledMessage]);
 
-  const openLegal = (type: 'imprint' | 'privacy') => {
-    setLegalModal({ isOpen: true, type });
-  };
-
   return (
     <footer id="contact" className="bg-transparent pt-24 pb-12 border-t border-slate-900 relative overflow-hidden">
-      {/* Legal Modal */}
-      <LegalModal 
-        isOpen={legalModal.isOpen} 
-        onClose={() => setLegalModal(prev => ({ ...prev, isOpen: false }))} 
-        type={legalModal.type} 
-      />
-      
       {/* Subtle Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/60 to-blue-900/20 pointer-events-none" />
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_bottom,rgba(29,78,216,0.1)_0%,transparent_70%)] pointer-events-none" />
@@ -145,8 +135,18 @@ export const Footer = ({ prefilledMessage }: { prefilledMessage?: string }) => {
           </div>
 
           <div className="flex gap-8 text-sm text-slate-500">
-            <button onClick={() => openLegal('imprint')} className="hover:text-white transition-colors">{t.footer.links.imprint}</button>
-            <button onClick={() => openLegal('privacy')} className="hover:text-white transition-colors">{t.footer.links.privacy}</button>
+            <button 
+              onClick={() => onOpenLegal('imprint')} 
+              className="hover:text-white transition-colors"
+            >
+              {t.footer.links.imprint}
+            </button>
+            <button 
+              onClick={() => onOpenLegal('privacy')} 
+              className="hover:text-white transition-colors"
+            >
+              {t.footer.links.privacy}
+            </button>
           </div>
         </div>
       </div>

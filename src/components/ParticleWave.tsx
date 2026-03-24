@@ -122,7 +122,7 @@ export const ParticleWave = () => {
 
   return (
     <div 
-      className="absolute inset-0 w-full h-full z-0 pointer-events-auto cursor-pointer"
+      className="absolute inset-0 w-full h-full z-[1] pointer-events-auto cursor-pointer"
       onMouseDown={() => setIsExploded(true)}
       onMouseUp={() => setIsExploded(false)}
       onMouseEnter={() => setIsHovered(true)}
