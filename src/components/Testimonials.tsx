@@ -29,7 +29,7 @@ export const Testimonials = () => {
     <section className="py-24 border-y border-slate-800/50">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-['Courier_New'] text-center">
             {t.testimonials.title}
           </h2>
           <p className="text-xl text-slate-400">

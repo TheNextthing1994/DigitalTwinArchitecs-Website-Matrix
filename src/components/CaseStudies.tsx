@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { 
-  ShoppingBag, 
-  Factory, 
-  Briefcase, 
-  Gamepad2, 
-  Stethoscope,
+  UserCheck, 
+  Settings, 
+  Brain, 
+  MessageSquare, 
+  TrendingUp,
   ArrowUpRight,
   Sparkles
 } from 'lucide-react';
@@ -19,7 +19,7 @@ export const CaseStudies = () => {
       id: 'rodar',
       title: t.caseStudies.units.rodar.title,
       description: t.caseStudies.units.rodar.desc,
-      icon: ShoppingBag,
+      icon: UserCheck,
       color: 'from-emerald-700 to-emerald-900',
       image: 'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&q=80&w=800'
     },
@@ -27,7 +27,7 @@ export const CaseStudies = () => {
       id: 'osman',
       title: t.caseStudies.units.osman.title,
       description: t.caseStudies.units.osman.desc,
-      icon: Factory,
+      icon: Settings,
       color: 'from-emerald-800 to-slate-900',
       image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800'
     },
@@ -35,7 +35,7 @@ export const CaseStudies = () => {
       id: 'max',
       title: t.caseStudies.units.max.title,
       description: t.caseStudies.units.max.desc,
-      icon: Briefcase,
+      icon: Brain,
       color: 'from-emerald-900 to-black',
       image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=800'
     },
@@ -43,7 +43,7 @@ export const CaseStudies = () => {
       id: 'gamezone',
       title: t.caseStudies.units.gamezone.title,
       description: t.caseStudies.units.gamezone.desc,
-      icon: Gamepad2,
+      icon: MessageSquare,
       color: 'from-purple-500 to-pink-600',
       image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800'
     },
@@ -51,14 +51,14 @@ export const CaseStudies = () => {
       id: 'wolber',
       title: t.caseStudies.units.wolber.title,
       description: t.caseStudies.units.wolber.desc,
-      icon: Stethoscope,
+      icon: TrendingUp,
       color: 'from-red-500 to-orange-600',
       image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800'
     }
   ];
 
   return (
-    <section id="case-studies" className="py-24">
+    <section id="case-studies" className="py-24 bg-slate-950">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
@@ -94,8 +94,13 @@ export const CaseStudies = () => {
               </div>
 
               <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${unit.color} flex items-center justify-center mb-6 shadow-lg shadow-emerald-900/40`}>
-                  <unit.icon className="text-white w-6 h-6" />
+                <div className="flex items-center justify-between mb-6">
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${unit.color} flex items-center justify-center shadow-lg shadow-emerald-900/40`}>
+                    <unit.icon className="text-white w-6 h-6" />
+                  </div>
+                  <div className="px-3 py-1 rounded-full bg-emerald-700/20 border border-emerald-500/30 text-[10px] font-bold text-emerald-500 uppercase tracking-widest">
+                    {t.caseStudies.flagship}
+                  </div>
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-emerald-600 transition-colors">
                   {unit.title}
@@ -125,9 +130,14 @@ export const CaseStudies = () => {
             <p className="text-slate-400 mb-8">
               {t.caseStudies.missingDesc}
             </p>
-            <button className="px-6 py-3 bg-white text-slate-950 rounded-full font-bold hover:bg-emerald-700 hover:text-white transition-all">
+            <a 
+              href="https://wa.me/436604763085"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-white text-slate-950 rounded-full font-bold hover:bg-emerald-700 hover:text-white transition-all inline-block"
+            >
               {t.caseStudies.missingCta}
-            </button>
+            </a>
           </motion.div>
         </div>
       </div>

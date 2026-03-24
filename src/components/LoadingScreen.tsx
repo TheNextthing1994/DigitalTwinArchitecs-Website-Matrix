@@ -24,8 +24,8 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
     resize();
 
     const dots: { x: number; y: number; z: number }[] = [];
-    const dotCount = 1500;
-    const radius = Math.min(canvas.width, canvas.height) * 0.4;
+    const dotCount = 1000;
+    const radius = Math.min(canvas.width, canvas.height) * 0.35;
 
     for (let i = 0; i < dotCount; i++) {
       const phi = Math.acos(-1 + (2 * i) / dotCount);
@@ -41,28 +41,25 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      const centerX = canvas.width * 0.3; // Position globe on the left
+      const centerX = canvas.width * 0.5;
       const centerY = canvas.height * 0.5;
       
-      rotation += 0.002;
+      rotation += 0.0015;
 
-      ctx.fillStyle = '#10b981'; // emerald-500
+      ctx.fillStyle = '#111111'; // rich-carbon
       
       dots.forEach(dot => {
-        // Rotate around Y axis
         const x = dot.x * Math.cos(rotation) - dot.z * Math.sin(rotation);
         const z = dot.x * Math.sin(rotation) + dot.z * Math.cos(rotation);
         const y = dot.y;
 
-        // Simple perspective projection
         const perspective = 1000 / (1000 + z);
         const px = centerX + x * perspective;
         const py = centerY + y * perspective;
 
-        // Only draw dots that are "in front" or slightly behind for a 3D effect
         if (z < radius * 0.5) {
-          const opacity = Math.max(0.1, (radius - z) / (radius * 2));
-          const size = Math.max(0.5, 2 * perspective);
+          const opacity = Math.max(0.05, (radius - z) / (radius * 3));
+          const size = Math.max(0.3, 1.5 * perspective);
           
           ctx.beginPath();
           ctx.globalAlpha = opacity;
@@ -71,14 +68,6 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
         }
       });
 
-      // Add a subtle glow behind the globe
-      const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius * 1.2);
-      gradient.addColorStop(0, 'rgba(16, 185, 129, 0.1)');
-      gradient.addColorStop(1, 'transparent');
-      ctx.globalAlpha = 1;
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
       animationFrameId = requestAnimationFrame(render);
     };
 
@@ -86,8 +75,8 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
 
     const timer = setTimeout(() => {
       setIsVisible(false);
-      setTimeout(onComplete, 1000); // Wait for fade out animation
-    }, 3000);
+      setTimeout(onComplete, 1000);
+    }, 2500);
 
     return () => {
       window.removeEventListener('resize', resize);
@@ -102,38 +91,42 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
-          className="fixed inset-0 z-[100] bg-slate-950 flex items-center justify-center overflow-hidden"
+          transition={{ duration: 1, ease: [0.62, 0.16, 0.13, 1.01] }}
+          className="fixed inset-0 z-[100] bg-white-flash flex items-center justify-center overflow-hidden"
         >
           <canvas
             ref={canvasRef}
-            className="absolute inset-0 pointer-events-none"
+            className="absolute inset-0 pointer-events-none opacity-20"
           />
-          
-          <div className="container mx-auto px-6 relative z-10 flex flex-col items-end justify-center h-full">
+
+          <div className="relative z-10 flex flex-col items-center">
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-right"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: [0.62, 0.16, 0.13, 1.01] }}
+              className="flex flex-col items-center"
             >
-              <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter text-white mb-2">
-                DigitalTwin<span className="text-emerald-500">Architecs</span>
+              <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-rich-carbon mb-4 uppercase">
+                EXPONENTIAL<span className="text-electric-teal">.</span>
               </h1>
-              <div className="flex items-center justify-end gap-4">
-                <div className="h-[2px] w-24 bg-emerald-500/50" />
-                <span className="text-emerald-500 font-bold tracking-[0.3em] text-sm uppercase">
-                  .io
+              
+              <div className="flex items-center gap-4">
+                <div className="h-[1px] w-12 bg-neural-fog" />
+                <span className="text-pulse-ash font-mono text-[10px] uppercase tracking-[0.5em]">
+                  Loading Systems
                 </span>
+                <div className="h-[1px] w-12 bg-neural-fog" />
               </div>
             </motion.div>
             
-            <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: "100%" }}
-              transition={{ delay: 1, duration: 2, ease: "linear" }}
-              className="absolute bottom-0 left-0 h-1 bg-emerald-500/20"
-            />
+            <div className="absolute bottom-[-100px] w-48 h-[1px] bg-neural-fog overflow-hidden">
+              <motion.div
+                initial={{ x: "-100%" }}
+                animate={{ x: "100%" }}
+                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                className="w-full h-full bg-rich-carbon"
+              />
+            </div>
           </div>
         </motion.div>
       )}

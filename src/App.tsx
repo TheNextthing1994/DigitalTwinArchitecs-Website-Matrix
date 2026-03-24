@@ -16,7 +16,7 @@ export default function App() {
   return (
     <LanguageProvider>
       {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
-      <div className={`min-h-screen bg-slate-950 text-slate-200 selection:bg-emerald-700 selection:text-white ${isLoading ? 'h-screen overflow-hidden' : ''}`}>
+      <div className={`min-h-screen bg-white-flash text-rich-carbon selection:bg-electric-teal selection:text-white ${isLoading ? 'h-screen overflow-hidden' : ''}`}>
         <Header />
         <main>
           <Hero onTileClick={setPrefilledMessage} />
@@ -24,8 +24,8 @@ export default function App() {
           <CaseStudies />
           <Testimonials />
           <Methodology />
+          <Footer prefilledMessage={prefilledMessage} />
         </main>
-        <Footer prefilledMessage={prefilledMessage} />
       </div>
     </LanguageProvider>
   );
