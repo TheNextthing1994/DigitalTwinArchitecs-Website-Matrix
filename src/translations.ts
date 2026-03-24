@@ -124,6 +124,26 @@ export const translations = {
         imprint: 'Impressum',
         privacy: 'Datenschutz'
       },
+      legal: {
+        imprint: {
+          title: 'Impressum',
+          company: 'DigitalTwinArchitecs.io',
+          address: 'Bregenz, Österreich',
+          contact: 'Kontakt',
+          email: 'office@digitaltwinarchitecs.io',
+          phone: '+43 (0)660 47 63 085',
+          chamber: 'Mitglied der Wirtschaftskammer Vorarlberg',
+          disclaimer: 'Haftungsausschluss: Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links.'
+        },
+        privacy: {
+          title: 'Datenschutz',
+          intro: 'Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir verarbeiten Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TKG 2003).',
+          contact: 'Kontakt mit uns',
+          contactDesc: 'Wenn Sie per Formular auf der Website oder per E-Mail Kontakt mit uns aufnehmen, werden Ihre angegebenen Daten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen sechs Monate bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.',
+          rights: 'Ihre Rechte',
+          rightsDesc: 'Ihnen stehen grundsätzlich die Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerruf und Widerspruch zu.'
+        }
+      },
       automationTasks: [
         'Kunden-Triage',
         'Echtzeit-Kalkulation',
@@ -261,6 +281,26 @@ export const translations = {
         imprint: 'Выходные данные',
         privacy: 'Конфиденциальность'
       },
+      legal: {
+        imprint: {
+          title: 'Выходные данные (Импринт)',
+          company: 'DigitalTwinArchitecs.io',
+          address: 'Брегенц, Австрия',
+          contact: 'Контакт',
+          email: 'office@digitaltwinarchitecs.io',
+          phone: '+43 (0)660 47 63 085',
+          chamber: 'Член Торгово-промышленной палаты Форарльберга',
+          disclaimer: 'Отказ от ответственности: Несмотря на тщательный контроль содержания, мы не несем ответственности за содержание внешних ссылок.'
+        },
+        privacy: {
+          title: 'Политика конфиденциальности',
+          intro: 'Защита ваших персональных данных является для нас приоритетом. Мы обрабатываем ваши данные исключительно на основании законодательных положений (GDPR).',
+          contact: 'Связь с нами',
+          contactDesc: 'Если вы связываетесь с нами через форму на сайте или по электронной почте, ваши данные будут храниться в течение шести месяцев для обработки запроса. Мы не передаем эти данные без вашего согласия.',
+          rights: 'Ваши права',
+          rightsDesc: 'У вас есть права на информацию, исправление, удаление, ограничение, переносимость данных, отзыв и возражение.'
+        }
+      },
       automationTasks: [
         'Триаж клиентов',
         'Расчет в реальном времени',
@@ -397,6 +437,26 @@ export const translations = {
       links: {
         imprint: 'Импринт',
         privacy: 'Къайлахалла'
+      },
+      legal: {
+        imprint: {
+          title: 'Импринт (Хаамаш)',
+          company: 'DigitalTwinArchitecs.io',
+          address: 'Брегенц, Австрия',
+          contact: 'ЗIе',
+          email: 'office@digitaltwinarchitecs.io',
+          phone: '+43 (0)660 47 63 085',
+          chamber: 'Форарльберган йохка-эцаран палатин декъашхо',
+          disclaimer: 'Жоьпалла: Тхуна тIехь дац кхечу сайтан чулацаман жоьпалла.'
+        },
+        privacy: {
+          title: 'Къайлахалла латтор',
+          intro: 'Хьан хаамаш ларбар тхуна коьрта ду. Оха хьан хаамашца болх бо законаца (GDPR).',
+          contact: 'Тхоьца зIе латтор',
+          contactDesc: 'Нагахь ахьа тхоьца зIе латтахь, хьан хаамаш ялх баттахь латтор бу оха. Хьан пурба доцуш оха уьш кхечунна дIалур бац.',
+          rights: 'Хьан бакъонаш',
+          rightsDesc: 'Хьан бакъо ю хаамаш хийца, дIадайа я кхин дIа ца лелийта.'
+        }
       },
       automationTasks: [
         'Клиентийн триаж',
