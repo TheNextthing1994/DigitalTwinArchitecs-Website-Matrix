@@ -51,7 +51,7 @@ export const Header = () => {
             </div>
           </div>
           <span className="text-xl font-bold tracking-tighter text-white">
-            DigitalTwin<span className="text-emerald-700">Architects</span>.io
+            DigitalTwin<span className="text-emerald-700">Architect</span>.io
           </span>
         </a>
 

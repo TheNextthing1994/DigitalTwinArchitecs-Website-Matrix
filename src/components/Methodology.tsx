@@ -35,41 +35,35 @@ export const Methodology = () => {
   ];
 
   return (
-    <section id="methodology" className="py-32 bg-white-flash overflow-hidden relative">
+    <section id="methodology" className="py-32 bg-slate-950 overflow-hidden relative">
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <div>
-            <div className="mb-8 flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.5em] text-pulse-ash">
-              <span>·</span>
-              {t.nav.methodology}
-              <span>·</span>
-            </div>
-            
-            <h2 className="text-4xl md:text-6xl font-bold text-rich-carbon mb-8 tracking-tighter uppercase leading-[0.9]">
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-4 tracking-tighter leading-[1.1]">
               {t.methodology.title} <br />
-              <span className="text-electric-teal">{t.methodology.highlight}</span>
+              <span className="text-emerald-500">{t.methodology.highlight}</span>
             </h2>
             
-            <p className="text-pulse-ash mb-16 leading-relaxed max-w-xl">
+            <p className="text-slate-400 mb-16 leading-relaxed max-w-xl text-lg">
               {t.methodology.subtitle}
             </p>
 
-            <div className="space-y-12">
+            <div className="space-y-10">
               {steps.map((step, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, ease: [0.62, 0.16, 0.13, 1.01] }}
-                  className="flex gap-8 group"
+                  transition={{ delay: i * 0.1, duration: 0.5 }}
+                  className="flex gap-6 group"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-sm bg-rich-carbon flex items-center justify-center group-hover:bg-core-black transition-colors">
-                    <step.icon className="text-white-flash w-5 h-5" />
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center group-hover:border-emerald-500/50 transition-colors">
+                    <step.icon className="text-emerald-500 w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-rich-carbon font-bold text-lg mb-2 uppercase tracking-tight">{step.title}</h4>
-                    <p className="text-pulse-ash text-sm leading-relaxed">{step.desc}</p>
+                    <h4 className="text-white font-bold text-xl mb-1 tracking-tight">{step.title}</h4>
+                    <p className="text-slate-400 text-sm leading-relaxed">{step.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -77,48 +71,69 @@ export const Methodology = () => {
           </div>
 
           <div className="relative">
-            <div className="absolute inset-0 bg-electric-teal/5 blur-[120px] rounded-full" />
+            {/* Background Glow */}
+            <div className="absolute -inset-4 bg-emerald-500/10 blur-3xl rounded-full opacity-50" />
+            
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.62, 0.16, 0.13, 1.01] }}
-              className="relative p-12 rounded-sm bg-white border border-neural-fog shadow-[0_40px_80px_rgba(0,0,0,0.05)] overflow-hidden"
+              transition={{ duration: 0.8 }}
+              className="relative rounded-3xl bg-[#0B1120] border border-slate-800 shadow-2xl overflow-hidden"
             >
-              <div className="flex items-center justify-between mb-12 relative z-10">
+              {/* Terminal Header */}
+              <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800/50 bg-slate-900/50">
                 <div className="flex gap-2">
-                  <div className="w-2 h-2 rounded-full bg-neural-fog" />
-                  <div className="w-2 h-2 rounded-full bg-neural-fog" />
-                  <div className="w-2 h-2 rounded-full bg-neural-fog" />
+                  <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/80" />
                 </div>
-                <div className="text-[10px] font-mono text-pulse-ash uppercase tracking-widest">exponential_core.config</div>
+                <div className="text-[11px] font-mono text-slate-500 tracking-wider">digital_twin_core.config.json</div>
               </div>
               
-              <pre className="font-mono text-sm text-rich-carbon overflow-x-auto relative z-10 leading-relaxed">
-                {`{
-  "project": "Exponential_Core",
-  "focus": {
-    "source": "Human_Intelligence",
-    "mode": "Exponential_Growth",
-    "goal": "Solving_Hard_Challenges"
-  },
-  "capabilities": [
-    "AI_&_Biotech",
-    "Robotics_&_Space",
-    "Blockchain_Systems"
-  ],
-  "status": "active_innovation"
-}`}
-              </pre>
-              
-              <div className="mt-12 pt-12 border-t border-neural-fog flex items-center justify-between relative z-10">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-sm bg-rich-carbon flex items-center justify-center">
-                    <Cpu className="text-white-flash w-5 h-5" />
+              {/* Code Content */}
+              <div className="p-8 font-mono text-sm leading-relaxed">
+                <div className="text-emerald-400/90">
+                  <span className="text-slate-400">{'{'}</span>
+                  <div className="pl-4">
+                    <span className="text-emerald-400">"project"</span>: <span className="text-emerald-300">"DigitalTwin_Core"</span>,
                   </div>
-                  <span className="text-rich-carbon font-bold tracking-tight uppercase text-sm">Exponential Engine v5.0</span>
+                  <div className="pl-4">
+                    <span className="text-emerald-400">"identity"</span>: <span className="text-slate-400">{'{'}</span>
+                    <div className="pl-4">
+                      <span className="text-emerald-400">"source"</span>: <span className="text-emerald-300">"Expert_Knowledge"</span>,
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-emerald-400">"mode"</span>: <span className="text-emerald-300">"Autonomous_Action"</span>,
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-emerald-400">"goal"</span>: <span className="text-emerald-300">"Freedom_&_Simplicity"</span>
+                    </div>
+                    <span className="text-slate-400">{'}'}</span>,
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-emerald-400">"capabilities"</span>: <span className="text-slate-400">{'['}</span>
+                    <div className="pl-4 text-emerald-300">"24/7_Operation",</div>
+                    <div className="pl-4 text-emerald-300">"Decision_Making",</div>
+                    <div className="pl-4 text-emerald-300">"Workflow_Automation"</div>
+                    <span className="text-slate-400">{']'}</span>,
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-emerald-400">"status"</span>: <span className="text-emerald-300">"active_delegation"</span>
+                  </div>
+                  <span className="text-slate-400">{'}'}</span>
                 </div>
-                <div className="px-4 py-1 rounded-full bg-electric-teal/10 text-electric-teal text-[10px] font-bold uppercase tracking-widest">
+              </div>
+              
+              {/* Terminal Footer */}
+              <div className="px-8 py-6 border-t border-slate-800/50 bg-slate-900/20 flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center">
+                    <Cpu className="text-emerald-500 w-5 h-5" />
+                  </div>
+                  <span className="text-white font-bold tracking-tight text-sm">Twin Engine v4.0</span>
+                </div>
+                <div className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-[10px] font-bold uppercase tracking-widest">
                   System Active
                 </div>
               </div>

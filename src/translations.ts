@@ -367,7 +367,7 @@ export const translations = {
       strategy: 'Стратеги'
     },
     hero: {
-      badge: 'Диджитал Шалвина',
+      badge: 'Маркет хIу боху',
       title1: 'Юхаяккха',
       title2: 'Маршо.',
       title3: 'Диджитал Шалвинаца.',
@@ -415,7 +415,7 @@ export const translations = {
       }
     },
     testimonials: {
-      title: 'Маркет хIун боху',
+      title: 'Маркет хIу боху',
       subtitle: 'Тхан партнерийн дуьххьаллера дешнаш. ЛадогIа, оха процессаш муха хийцайо.',
       items: [
         {

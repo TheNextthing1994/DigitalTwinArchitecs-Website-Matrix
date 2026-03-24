@@ -11,6 +11,8 @@ export const Footer = ({
   onOpenLegal: (type: 'imprint' | 'privacy') => void;
 }) => {
   const { t } = useLanguage();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
   useEffect(() => {
@@ -18,6 +20,16 @@ export const Footer = ({
       setMessage(prefilledMessage);
     }
   }, [prefilledMessage]);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const phoneNumber = '436604763085';
+    const text = `*Neue Anfrage von der Website*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Nachricht:* ${message}`;
+    
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${text}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   return (
     <footer id="contact" className="bg-transparent pt-24 pb-12 border-t border-slate-900 relative overflow-hidden">
@@ -59,12 +71,15 @@ export const Footer = ({
           </div>
 
           <div className="bg-slate-900 p-8 md:p-12 rounded-3xl border border-slate-800">
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-slate-400 uppercase tracking-widest">{t.footer.form.name}</label>
                   <input 
                     type="text" 
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:border-emerald-700 outline-none transition-colors"
                     placeholder={t.footer.form.namePlaceholder}
                   />
@@ -73,6 +88,9 @@ export const Footer = ({
                   <label className="text-sm font-bold text-slate-400 uppercase tracking-widest">{t.footer.form.email}</label>
                   <input 
                     type="email" 
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:border-emerald-700 outline-none transition-colors"
                     placeholder={t.footer.form.emailPlaceholder}
                   />
@@ -100,13 +118,17 @@ export const Footer = ({
                 </div>
                 <textarea 
                   rows={4}
+                  required
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:border-emerald-700 outline-none transition-colors resize-none"
                   placeholder={t.footer.form.messagePlaceholder}
                 />
               </div>
-              <button className="w-full py-4 bg-emerald-700 text-white rounded-xl font-bold text-lg hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-900/20">
+              <button 
+                type="submit"
+                className="w-full py-4 bg-emerald-700 text-white rounded-xl font-bold text-lg hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-900/20"
+              >
                 {t.footer.form.send}
               </button>
             </form>

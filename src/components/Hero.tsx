@@ -25,8 +25,8 @@ export const Hero = ({ onTileClick }: { onTileClick: (text: string) => void }) =
       {/* 3D Particle Animation Background */}
       <ParticleWave />
 
-      <div className="container mx-auto px-6 relative z-30">
-        <div className="max-w-4xl relative z-10 pointer-events-none">
+      <div className="container mx-auto px-6 relative z-30 pointer-events-none">
+        <div className="max-w-4xl relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
