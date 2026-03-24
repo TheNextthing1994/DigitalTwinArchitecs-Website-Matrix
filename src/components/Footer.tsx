@@ -13,7 +13,7 @@ export const Footer = ({ prefilledMessage }: { prefilledMessage?: string }) => {
   }, [prefilledMessage]);
 
   return (
-    <footer id="contact" className="bg-slate-950 pt-24 pb-12 border-t border-slate-900 relative overflow-hidden">
+    <footer id="contact" className="pt-24 pb-12 border-t border-slate-900 relative overflow-hidden">
       {/* Subtle Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/60 to-blue-900/20 pointer-events-none" />
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_bottom,rgba(29,78,216,0.1)_0%,transparent_70%)] pointer-events-none" />
@@ -21,9 +21,11 @@ export const Footer = ({ prefilledMessage }: { prefilledMessage?: string }) => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tighter leading-none">
               {t.footer.ctaTitle} <br />
-              <span className="text-emerald-700">{t.footer.ctaHighlight}</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-600 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                {t.footer.ctaHighlight}
+              </span>
             </h2>
             <p className="text-xl text-slate-400 mb-12 max-w-md">
               {t.footer.ctaDesc}

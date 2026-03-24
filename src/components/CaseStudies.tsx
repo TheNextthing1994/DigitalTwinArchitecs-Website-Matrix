@@ -58,7 +58,7 @@ export const CaseStudies = () => {
   ];
 
   return (
-    <section id="case-studies" className="py-24 bg-slate-950">
+    <section id="case-studies" className="py-24">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">

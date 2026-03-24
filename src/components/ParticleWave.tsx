@@ -38,7 +38,7 @@ const Particles = ({ isExploded, isHovered }: { isExploded: boolean; isHovered: 
   const explosionFactor = useRef(0);
   const returnFactor = useRef(1);
 
-  useFrame((state) => {
+  useFrame((state, delta) => {
     const time = state.clock.getElapsedTime();
     const positionsAttr = pointsRef.current.geometry.attributes.position;
 
@@ -46,14 +46,14 @@ const Particles = ({ isExploded, isHovered }: { isExploded: boolean; isHovered: 
     explosionFactor.current = THREE.MathUtils.lerp(
       explosionFactor.current, 
       isExploded ? 1 : 0, 
-      0.1
+      0.1 * (delta * 60)
     );
 
     // Smoothly transition return factor based on hover
     returnFactor.current = THREE.MathUtils.lerp(
       returnFactor.current,
       isHovered ? 1 : 0,
-      0.05
+      0.05 * (delta * 60)
     );
 
     for (let i = 0; i < count; i++) {
@@ -77,21 +77,20 @@ const Particles = ({ isExploded, isHovered }: { isExploded: boolean; isHovered: 
         const explodeZ = randomDirections[idx + 2] * explosionFactor.current;
 
         // Calculate current position
-        // Wave is now always active by default
         const currentTargetX = x;
         const currentTargetY = targetY;
         const currentTargetZ = z;
 
         // Apply explosion and return interpolation
-        positionsAttr.array[idx] = THREE.MathUtils.lerp(positionsAttr.array[idx], currentTargetX + explodeX, 0.1);
-        positionsAttr.array[idx + 1] = THREE.MathUtils.lerp(positionsAttr.array[idx + 1], currentTargetY + explodeY, 0.1);
-        positionsAttr.array[idx + 2] = THREE.MathUtils.lerp(positionsAttr.array[idx + 2], currentTargetZ + explodeZ, 0.1);
+        positionsAttr.array[idx] = THREE.MathUtils.lerp(positionsAttr.array[idx], currentTargetX + explodeX, 0.1 * (delta * 60));
+        positionsAttr.array[idx + 1] = THREE.MathUtils.lerp(positionsAttr.array[idx + 1], currentTargetY + explodeY, 0.1 * (delta * 60));
+        positionsAttr.array[idx + 2] = THREE.MathUtils.lerp(positionsAttr.array[idx + 2], currentTargetZ + explodeZ, 0.1 * (delta * 60));
       }
     }
     
     // Parallax rotation
-    pointsRef.current.rotation.y = THREE.MathUtils.lerp(pointsRef.current.rotation.y, mouse.x * 0.2, 0.05);
-    pointsRef.current.rotation.x = THREE.MathUtils.lerp(pointsRef.current.rotation.x, -mouse.y * 0.1, 0.05);
+    pointsRef.current.rotation.y = THREE.MathUtils.lerp(pointsRef.current.rotation.y, mouse.x * 0.2, 0.05 * (delta * 60));
+    pointsRef.current.rotation.x = THREE.MathUtils.lerp(pointsRef.current.rotation.x, -mouse.y * 0.1, 0.05 * (delta * 60));
 
     positionsAttr.needsUpdate = true;
   });
@@ -119,11 +118,11 @@ const Particles = ({ isExploded, isHovered }: { isExploded: boolean; isHovered: 
 
 export const ParticleWave = () => {
   const [isExploded, setIsExploded] = useState(false);
-  const [isHovered, setIsHovered] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div 
-      className="fixed inset-0 w-full h-full z-0 pointer-events-auto cursor-pointer"
+      className="absolute inset-0 w-full h-full z-0 pointer-events-auto cursor-pointer"
       onMouseDown={() => setIsExploded(true)}
       onMouseUp={() => setIsExploded(false)}
       onMouseEnter={() => setIsHovered(true)}
@@ -132,7 +131,11 @@ export const ParticleWave = () => {
         setIsExploded(false);
       }}
     >
-      <Canvas camera={{ position: [0, 15, 30], fov: 45 }}>
+      <Canvas 
+        camera={{ position: [0, 15, 30], fov: 45 }}
+        dpr={[1, 2]}
+        gl={{ antialias: true, alpha: true }}
+      >
         <ambientLight intensity={0.5} />
         <Particles isExploded={isExploded} isHovered={isHovered} />
       </Canvas>

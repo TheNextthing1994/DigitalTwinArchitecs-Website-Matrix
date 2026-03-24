@@ -107,8 +107,8 @@ export const translations = {
       ]
     },
     footer: {
-      ctaTitle: 'Ihre Vision.',
-      ctaHighlight: 'Digital vollendet.',
+      ctaTitle: 'Sie haben die Vision -',
+      ctaHighlight: 'Wir machen Realität draus.',
       ctaDesc: 'Lassen Sie uns gemeinsam Ihr Fachwissen in eine digitale Belegschaft transformieren.',
       form: {
         name: 'Name',
@@ -241,8 +241,8 @@ export const translations = {
       ]
     },
     footer: {
-      ctaTitle: 'Ваше видение.',
-      ctaHighlight: 'Безупречный диджитал.',
+      ctaTitle: 'У вас есть видение —',
+      ctaHighlight: 'Мы воплощаем его в реальность.',
       ctaDesc: 'Давайте вместе превратим вашу экспертизу в диджитал-команду.',
       form: {
         name: 'Имя',

@@ -66,7 +66,10 @@ export const ScrollingTiles: React.FC<ScrollingTilesProps> = ({ onTileClick }) =
   const duplicatedRow2 = [...row2, ...row2];
 
   return (
-    <div className="pb-24 pt-0 bg-slate-950 overflow-hidden flex flex-col gap-8 relative -mt-32 z-20">
+    <div className={cn(
+      "pb-24 pt-0 bg-slate-950 overflow-hidden flex flex-col gap-8 relative z-20",
+      language === 'ru' ? "-mt-16 md:-mt-24" : "-mt-24 md:-mt-32"
+    )}>
       {/* Background Glows for 3D depth */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[300px] bg-emerald-900/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[300px] bg-blue-900/5 blur-[120px] rounded-full pointer-events-none" />

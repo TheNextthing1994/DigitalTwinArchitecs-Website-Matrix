@@ -35,7 +35,7 @@ export const Methodology = () => {
   ];
 
   return (
-    <section id="methodology" className="py-24 bg-slate-950 overflow-hidden">
+    <section id="methodology" className="py-24 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>

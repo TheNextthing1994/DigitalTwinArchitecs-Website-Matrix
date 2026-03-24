@@ -26,7 +26,7 @@ export const Testimonials = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-24 bg-slate-900 border-y border-slate-800">
+    <section className="py-24 border-y border-slate-800/50">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">

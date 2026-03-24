@@ -11,7 +11,10 @@ export const Hero = ({ onTileClick }: { onTileClick: (text: string) => void }) =
   const { t, language } = useLanguage();
 
   return (
-    <section className="relative min-h-[80vh] flex items-center pt-32 overflow-hidden bg-slate-950">
+    <section className={cn(
+      "relative flex items-center overflow-hidden bg-slate-950",
+      language === 'ru' ? "min-h-[75vh] pt-20 md:pt-24" : "min-h-[85vh] pt-24 md:pt-32"
+    )}>
       {/* 3D Particle Animation Background */}
       <ParticleWave />
 
@@ -28,7 +31,10 @@ export const Hero = ({ onTileClick }: { onTileClick: (text: string) => void }) =
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-emerald-600 text-xs font-bold uppercase tracking-widest mb-6 pointer-events-auto"
+            className={cn(
+              "inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-emerald-600 text-xs font-bold uppercase tracking-widest pointer-events-auto",
+              language === 'ru' ? "mb-3 md:mb-4" : "mb-4 md:mb-6"
+            )}
           >
             <Sparkles className="w-3 h-3" />
             {t.hero.badge}
@@ -38,7 +44,10 @@ export const Hero = ({ onTileClick }: { onTileClick: (text: string) => void }) =
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter leading-[0.9] mb-8 pointer-events-auto"
+            className={cn(
+              "font-bold text-white tracking-tighter leading-[0.9] pointer-events-auto",
+              language === 'ru' ? "text-4xl md:text-6xl lg:text-7xl mb-4 md:mb-6" : "text-4xl md:text-7xl lg:text-8xl mb-6 md:mb-8"
+            )}
           >
             {t.hero.title1} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-900">
@@ -51,7 +60,10 @@ export const Hero = ({ onTileClick }: { onTileClick: (text: string) => void }) =
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-slate-400 max-w-2xl mb-10 leading-relaxed pointer-events-auto"
+            className={cn(
+              "text-slate-400 max-w-2xl leading-relaxed pointer-events-auto",
+              language === 'ru' ? "text-base md:text-lg mb-6 md:mb-8" : "text-base md:text-xl mb-8 md:mb-10"
+            )}
           >
             {t.hero.subtitle}
           </motion.p>
