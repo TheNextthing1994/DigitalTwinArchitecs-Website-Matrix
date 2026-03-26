@@ -24,8 +24,8 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
     resize();
 
     const dots: { x: number; y: number; z: number }[] = [];
-    const dotCount = 1000;
-    const radius = Math.min(canvas.width, canvas.height) * 0.35;
+    const dotCount = 1200;
+    const radius = Math.min(canvas.width, canvas.height) * 0.45;
 
     for (let i = 0; i < dotCount; i++) {
       const phi = Math.acos(-1 + (2 * i) / dotCount);
@@ -41,12 +41,12 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      const centerX = canvas.width * 0.5;
+      const centerX = canvas.width * 0.35;
       const centerY = canvas.height * 0.5;
       
       rotation += 0.0015;
 
-      ctx.fillStyle = '#111111'; // rich-carbon
+      ctx.fillStyle = '#10b981'; // emerald-500
       
       dots.forEach(dot => {
         const x = dot.x * Math.cos(rotation) - dot.z * Math.sin(rotation);
@@ -92,41 +92,52 @@ export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1, ease: [0.62, 0.16, 0.13, 1.01] }}
-          className="fixed inset-0 z-[100] bg-white-flash flex items-center justify-center overflow-hidden"
+          className="fixed inset-0 z-[100] bg-slate-950 flex items-center overflow-hidden"
         >
           <canvas
             ref={canvasRef}
-            className="absolute inset-0 pointer-events-none opacity-20"
+            className="absolute inset-0 pointer-events-none opacity-40"
           />
 
-          <div className="relative z-10 flex flex-col items-center">
+          <div className="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between">
+            <div className="hidden md:block w-1/3" /> {/* Spacer for the globe on the left */}
+            
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, ease: [0.62, 0.16, 0.13, 1.01] }}
-              className="flex flex-col items-center"
+              className="flex flex-col items-center md:items-start md:pl-20"
             >
-              <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-rich-carbon mb-4 uppercase">
-                EXPONENTIAL<span className="text-electric-teal">.</span>
+              <div className="relative w-20 h-20 mb-8 flex items-center justify-center">
+                <div className="absolute inset-0 bg-emerald-600/20 rounded-2xl blur-md" />
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/40 to-emerald-900/40 rounded-2xl border border-white/20 backdrop-blur-md shadow-2xl" />
+                <div className="relative flex items-center justify-center font-black text-3xl tracking-tighter select-none">
+                  <span className="text-white">D</span>
+                  <span className="text-emerald-400 -ml-1">T</span>
+                </div>
+              </div>
+
+              <h1 className="text-3xl md:text-5xl font-black tracking-tighter text-white mb-4 uppercase text-center md:text-left">
+                DigitalTwin<span className="text-emerald-600">Architect</span>.io
               </h1>
               
               <div className="flex items-center gap-4">
-                <div className="h-[1px] w-12 bg-neural-fog" />
-                <span className="text-pulse-ash font-mono text-[10px] uppercase tracking-[0.5em]">
-                  Loading Systems
+                <div className="h-[1px] w-12 bg-slate-800" />
+                <span className="text-slate-500 font-mono text-[10px] uppercase tracking-[0.5em]">
+                  Initializing Twin
                 </span>
-                <div className="h-[1px] w-12 bg-neural-fog" />
+                <div className="h-[1px] w-12 bg-slate-800" />
+              </div>
+
+              <div className="mt-12 w-48 h-[1px] bg-slate-800 overflow-hidden">
+                <motion.div
+                  initial={{ x: "-100%" }}
+                  animate={{ x: "100%" }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                  className="w-full h-full bg-emerald-600"
+                />
               </div>
             </motion.div>
-            
-            <div className="absolute bottom-[-100px] w-48 h-[1px] bg-neural-fog overflow-hidden">
-              <motion.div
-                initial={{ x: "-100%" }}
-                animate={{ x: "100%" }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                className="w-full h-full bg-rich-carbon"
-              />
-            </div>
           </div>
         </motion.div>
       )}

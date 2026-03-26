@@ -28,7 +28,7 @@ export default function App() {
     <LanguageProvider>
       {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
       <div className={`min-h-screen bg-slate-950 text-slate-200 selection:bg-emerald-700 selection:text-white ${isLoading ? 'h-screen overflow-hidden' : ''}`}>
-        <Header />
+        <Header onTileClick={setPrefilledMessage} />
         <main>
           <Hero onTileClick={setPrefilledMessage} />
           <ScrollingTiles onTileClick={setPrefilledMessage} />

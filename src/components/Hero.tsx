@@ -5,7 +5,6 @@ import { cn } from '../lib/utils';
 import { useLanguage } from '../contexts/LanguageContext';
 
 import { ParticleWave } from './ParticleWave';
-import { PhysicsCloud } from './PhysicsCloud';
 
 export const Hero = ({ onTileClick }: { onTileClick: (text: string) => void }) => {
   const { t, language } = useLanguage();
@@ -13,7 +12,7 @@ export const Hero = ({ onTileClick }: { onTileClick: (text: string) => void }) =
   return (
     <section className={cn(
       "relative flex items-center overflow-hidden bg-slate-950",
-      language === 'ru' ? "min-h-[75vh] pt-20 md:pt-24 pb-12" : "min-h-[85vh] pt-24 md:pt-32 pb-24"
+      language === 'ru' ? "min-h-[70vh] pt-24 md:pt-24 pb-12" : "min-h-[80vh] pt-28 md:pt-32 pb-20"
     )}>
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
@@ -32,7 +31,7 @@ export const Hero = ({ onTileClick }: { onTileClick: (text: string) => void }) =
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className={cn(
-              "inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-emerald-600 text-xs font-bold uppercase tracking-widest pointer-events-auto",
+              "inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-emerald-600 text-[10px] md:text-xs font-bold uppercase tracking-widest pointer-events-auto",
               language === 'ru' ? "mb-3 md:mb-4" : "mb-4 md:mb-6"
             )}
           >
@@ -45,8 +44,8 @@ export const Hero = ({ onTileClick }: { onTileClick: (text: string) => void }) =
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className={cn(
-              "font-bold text-white tracking-tighter leading-[0.9]",
-              language === 'ru' ? "text-4xl md:text-6xl lg:text-7xl mb-4 md:mb-6" : "text-4xl md:text-7xl lg:text-8xl mb-6 md:mb-8"
+              "font-bold text-white tracking-tighter leading-[1.1] md:leading-[0.9]",
+              language === 'ru' ? "text-3xl md:text-6xl lg:text-7xl mb-4 md:mb-6" : "text-4xl md:text-7xl lg:text-8xl mb-6 md:mb-8"
             )}
           >
             {t.hero.title1} <br />
@@ -62,7 +61,7 @@ export const Hero = ({ onTileClick }: { onTileClick: (text: string) => void }) =
             transition={{ duration: 0.6, delay: 0.2 }}
             className={cn(
               "text-slate-400 max-w-2xl leading-relaxed",
-              language === 'ru' ? "text-base md:text-lg mb-6 md:mb-8" : "text-base md:text-xl mb-8 md:mb-10"
+              language === 'ru' ? "text-sm md:text-lg mb-6 md:mb-8" : "text-base md:text-xl mb-8 md:mb-10"
             )}
           >
             {t.hero.subtitle}
@@ -72,12 +71,12 @@ export const Hero = ({ onTileClick }: { onTileClick: (text: string) => void }) =
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-6 pointer-events-auto"
+            className="flex flex-col sm:flex-row gap-4 md:gap-6 pointer-events-auto"
           >
             <a 
               href="#contact" 
               className={cn(
-                "group relative px-10 py-4 rounded-2xl font-bold text-lg transition-all duration-500",
+                "group relative px-8 md:px-10 py-3.5 md:py-4 rounded-2xl font-bold text-base md:text-lg transition-all duration-500",
                 "bg-gradient-to-br from-emerald-400/90 via-emerald-600/90 to-blue-600/90 backdrop-blur-xl",
                 "border border-white/30 border-t-white/50",
                 "text-white shadow-[0_20px_40px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.4)]",

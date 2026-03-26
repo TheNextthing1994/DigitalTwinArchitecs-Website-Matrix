@@ -17,13 +17,6 @@ export const translations = {
       cta1: 'Meinen Zwilling planen',
       cta2: 'Mehr erfahren'
     },
-    targetGroups: [
-      'Hautärzte', 'Frisöre', 'Online Shop Owner', 'Elektriker', 'Büromitarbeiter',
-      'Immobilienmakler', 'Logistikleiter', 'Praxispersonal', 'E-Commerce Manager',
-      'Handwerksmeister', 'Finanzberater', 'Kundenbetreuer', 'Projektleiter',
-      'Vertriebsteams', 'Marketing Agenturen', 'Fitnessstudio Besitzer',
-      'Gastronomen', 'Architekten', 'Rechtsanwälte', 'Steuerberater'
-    ],
     caseStudies: {
       title: 'Die 5 Fähigkeiten',
       subtitle: 'Spezialisierte KI-Lösungen für unterschiedliche Branchen. Jede Fähigkeit ist ein Standard für Effizienz.',
@@ -196,13 +189,6 @@ export const translations = {
       cta1: 'Спроектировать двойника',
       cta2: 'Узнать больше'
     },
-    targetGroups: [
-      'Дерматологи', 'Парикмахеры', 'Владельцы интернет-магазинов', 'Электрики', 'Офисные сотрудники',
-      'Риелторы', 'Логисты', 'Медперсонал', 'E-Commerce менеджеры',
-      'Мастера', 'Финансовые консультанты', 'Менеджеры по работе с клиентами', 'Руководители проектов',
-      'Отделы продаж', 'Маркетинговые агентства', 'Владельцы фитнес-клубов',
-      'Рестораторы', 'Архитекторы', 'Юристы', 'Налоговые консультанты'
-    ],
     caseStudies: {
       title: '5 возможностей',
       subtitle: 'Специализированные ИИ-решения для различных отраслей. Каждая возможность — это стандарт эффективности.',
@@ -375,13 +361,6 @@ export const translations = {
       cta1: 'Шалвинаг кечве вай',
       cta2: 'Х1у до цо'
     },
-    targetGroups: [
-      'ЦIоканан лоьраш', 'Месаш яшархой', 'Интернет-туьканийн дай', 'Электрикаш', 'Офисан белхалой',
-      'Риелторш', 'Логисташ', 'Лоьрийн персонал', 'E-Commerce менеджерш',
-      'Пхьераш', 'Финансийн консультанташ', 'Клиенташца болх бийриг', 'Проектийн куьйгалхой',
-      'Йохка-эцаран отделаш', 'Маркетинган агентствош', 'Фитнес-клубийн дай',
-      'Рестораторш', 'Архитекторш', 'Юристаш', 'Налогийн консультанташ'
-    ],
     caseStudies: {
       title: '5 говзалла',
       subtitle: 'Тайп-тайpanчу отраслашна лерина ИИ-некъаш. ХIора говзалла — эффективаллан стандарт ю.',
